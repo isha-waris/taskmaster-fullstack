@@ -3,15 +3,15 @@
 public class TaskItem
 {
     // Primary Key
-    public int Id { get; set; }
+    public  int Id { get; set; }
 
     // Task Details
-    public required string Title { get; set; }
-    public required string Description { get; set; }
-    public required string Status { get; set; }
+    public string Title { get; set; } = null!;
+    public string Description { get; set; } = null!;
+    public string Status { get; set; } = null!;
 
     // Foreign Key → User
-    public int AssignedToUserId { get; set; }
+    public  int AssignedToUserId { get; set; }
 
     // Audit
     public DateTime CreatedAt { get; set; }
@@ -20,8 +20,8 @@ public class TaskItem
     // 🔗 Navigation Properties
 
     // Many Tasks → One User
-    public required User AssignedToUser { get; set; }
+    public User AssignedToUser { get; set; } = null!;
 
     // One Task → Many Status History Records
-    public required ICollection<TaskStatusHistory> StatusHistory { get; set; }
+    public ICollection<TaskStatusHistory> StatusHistory { get; set; } = new List<TaskStatusHistory>();
 }

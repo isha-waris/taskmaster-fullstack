@@ -6,10 +6,10 @@ public class User
     public int Id { get; set; }
 
     // Basic Information
-    public required string FullName { get; set; }
-    public required string Email { get; set; }
-    public required string PasswordHash { get; set; }
-    public required string Role { get; set; }
+    public string FullName { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string PasswordHash { get; set; } = null!;
+    public string Role { get; set; } = null!;
 
     // Audit
     public DateTime CreatedAt { get; set; }
@@ -17,8 +17,8 @@ public class User
     // 🔗 Navigation Properties
 
     // One User → Many Tasks (Assigned Tasks)
-    public required ICollection<TaskItem> AssignedTasks { get; set; }
+    public ICollection<TaskItem> AssignedTasks { get; set; } = new List<TaskItem>();
 
     // One User → Many Status Changes
-    public required ICollection<TaskStatusHistory> StatusHistories { get; set; }
+    public ICollection<TaskStatusHistory> StatusHistories { get; set; } = new List<TaskStatusHistory>();
 }

@@ -8,6 +8,7 @@ D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\TaskMaster.API.pdb
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Azure.Core.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Azure.Identity.dll
+D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Humanizer.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -33,6 +34,7 @@ D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll

@@ -15,7 +15,12 @@ namespace TaskMaster.API.Repositories.Concrete
         public async Task<IEnumerable<TaskItem>> GetAllTasksAsync()
             => await _context.TaskItems.ToListAsync();
         public async Task<TaskItem?> GetTaskByIdAsync(int id)
-            => await _context.TaskItems.FindAsync(id);
+        {
+            return await _context.TaskItems
+                .Include(t => t.StatusHistory)
+                .FirstOrDefaultAsync(t => t.Id == id);
+        }
+
         public async Task<TaskItem> AddTaskAsync(TaskItem task)
         {
             _context.TaskItems.Add(task);

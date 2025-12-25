@@ -17,7 +17,14 @@ namespace TaskMaster.API.Repositories.Concrete
             => await _context.Users.ToListAsync();
 
         public async Task<User?> GetUserByIdAsync(int id)
-            => await _context.Users.FindAsync(id);
+        {
+            return await _context.Users
+                .Include(u => u.AssignedTasks)
+                    .ThenInclude(t => t.StatusHistory)
+                .Include(u => u.StatusHistories)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
 
         public async Task<User> AddUserAsync(User user)
         {
@@ -48,5 +55,14 @@ namespace TaskMaster.API.Repositories.Concrete
             await _context.SaveChangesAsync();
             return true;
         }
+        public async Task<bool>  ChangePasswordAsync(int id, string newPasswordHash)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user is null) return false;
+            user.PasswordHash = newPasswordHash;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
     }
 }

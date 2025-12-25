@@ -9,6 +9,7 @@ namespace TaskMaster.API.Repositories.Interfaces
         Task<User> AddUserAsync(User user);
         Task<User?> UpdateUserAsync(User user);
         Task<bool> DeleteUserAsync(int id);
+        Task<bool> ChangePasswordAsync(int id, string newPasswordHash);
     }
 }
 //An enumeration (or enum) in C# is a value type defined by a set of named constants of the underlying integral numeric type.

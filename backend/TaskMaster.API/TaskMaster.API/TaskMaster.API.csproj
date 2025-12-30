@@ -7,18 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTOs\NewFolder1\**" />
     <Compile Remove="Models\NewFolder1\**" />
     <Compile Remove="Models\NewFolder\**" />
+    <Content Remove="DTOs\NewFolder1\**" />
     <Content Remove="Models\NewFolder1\**" />
     <Content Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="DTOs\NewFolder1\**" />
     <EmbeddedResource Remove="Models\NewFolder1\**" />
     <EmbeddedResource Remove="Models\NewFolder\**" />
+    <None Remove="DTOs\NewFolder1\**" />
     <None Remove="Models\NewFolder1\**" />
     <None Remove="Models\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Azure.Amqp" Version="2.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -31,13 +37,12 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.15.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\NewFolder1\" />
-    <Folder Include="DTOs\NewFolder\" />
     <Folder Include="Entities\" />
-    <Folder Include="Services\" />
+    <Folder Include="NewFolder\" />
   </ItemGroup>
 
 </Project>

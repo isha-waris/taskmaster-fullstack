@@ -24,7 +24,14 @@ namespace TaskMaster.API.Repositories.Concrete
                 .Include(u => u.StatusHistories)
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
-
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users
+               .Include(u => u.AssignedTasks)
+                   .ThenInclude(t => t.StatusHistory)
+               .Include(u => u.StatusHistories)
+               .FirstOrDefaultAsync(u => u.Email == email);
+        }
 
         public async Task<User> AddUserAsync(User user)
         {

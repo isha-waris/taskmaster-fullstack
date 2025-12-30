@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TaskMaster.API.Enums;
 
 namespace TaskMaster.API.DTOs.User
 {
@@ -11,6 +12,6 @@ namespace TaskMaster.API.DTOs.User
             public string Email { get; set; } = null!;
 
             [Required, StringLength(50)]
-            public string Role { get; set; } = null!;
+            public UserRole Role { get; set; } 
         }
 }

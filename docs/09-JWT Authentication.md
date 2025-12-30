@@ -40,3 +40,83 @@ Slide 7: References
 - RFC 7519: https://www.rfc-editor.org/rfc/rfc7519
 - Microsoft Docs: https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt
 
+## 3️⃣ JWT flow (MOST IMPORTANT)
+
+### Step 1: Login
+
+```
+POST /api/auth/login
+{
+  "email": "isha@gmail.com",
+  "password": "123"
+}
+```
+
+### Step 2: Server validates
+
+* Check user exists
+* Check password matches
+
+### Step 3: Server creates token
+
+Token contains:
+
+* UserId
+* Email
+* Role
+* Expiry time
+
+### Step 4: Server returns token
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIs..."
+}
+```
+
+---
+
+## 4️⃣ What client does with token
+
+Client (Swagger / React / Postman):
+
+* Stores token
+* Sends it in **every request**
+
+HTTP Header:
+
+```
+Authorization: Bearer <TOKEN>
+```
+
+---
+
+## 5️⃣ What server does on each request
+
+When request comes:
+
+1. Extract token
+2. Validate signature
+3. Check expiry
+4. Read user info from token
+5. Set `User.Identity`
+
+If token is missing or invalid → ❌ 401
+
+---
+
+## 6️⃣ Important realization (this clears confusion)
+
+> ❗ JWT does NOT log you in permanently
+> ❗ JWT only proves identity **per request**
+
+That’s why:
+
+* Swagger still opens
+* Endpoints still appear
+* But protected endpoints return **401**
+
+Swagger ≠ logged in
+Token ≠ UI login
+Token = proof per request
+

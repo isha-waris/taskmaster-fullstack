@@ -9,8 +9,8 @@ public class TaskStatusHistory
     public int TaskItemId { get; set; }
 
     // Status Tracking
-    public string OldStatus { get; set; } = null!;
-    public  string NewStatus { get; set; } = null!;
+    public int OldStatus { get; set; } 
+    public  int NewStatus { get; set; }
 
     // Audit
     public DateTime ChangedAt { get; set; }

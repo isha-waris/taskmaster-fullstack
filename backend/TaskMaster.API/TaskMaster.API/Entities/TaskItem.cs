@@ -8,7 +8,7 @@ public class TaskItem
     // Task Details
     public string Title { get; set; } = null!;
     public string Description { get; set; } = null!;
-    public string Status { get; set; } = null!;
+    public string? Status { get; set; } = null!;
 
     // Foreign Key → User
     public  int AssignedToUserId { get; set; }

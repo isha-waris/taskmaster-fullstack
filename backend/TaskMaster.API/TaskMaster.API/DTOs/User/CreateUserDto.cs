@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using TaskMaster.API.Enums;
 
 namespace TaskMaster.API.DTOs.User
 {
@@ -11,6 +12,6 @@ namespace TaskMaster.API.DTOs.User
         [MinLength(6)]
         public string PasswordHash { get; set; }
         [Required]
-        public string Role { get; set; }
+        public UserRole Role { get; set; }
     }
 }

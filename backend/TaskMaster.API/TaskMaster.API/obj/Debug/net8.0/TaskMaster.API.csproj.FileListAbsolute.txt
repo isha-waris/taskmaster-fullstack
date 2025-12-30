@@ -141,3 +141,5 @@ D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\obj\Debug
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\obj\Debug\net8.0\TaskMaster.API.pdb
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\obj\Debug\net8.0\TaskMaster.API.genruntimeconfig.cache
 D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\obj\Debug\net8.0\ref\TaskMaster.API.dll
+D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\React Js\taskmaster-fullstack\backend\TaskMaster.API\TaskMaster.API\bin\Debug\net8.0\Microsoft.Azure.Amqp.dll

@@ -6,7 +6,7 @@ using TaskMaster.API.Repositories.Interfaces;
 
 namespace TaskMaster.API.Repositories.Concrete
 {
-    public class TaskStatusHistoryRepository :ITaskStatusHistoryRepository
+    public class TaskStatusHistoryRepository : ITaskStatusHistoryRepository
     {
         private readonly ApplicationDbContext _context;
         public TaskStatusHistoryRepository(ApplicationDbContext context)
@@ -18,10 +18,17 @@ namespace TaskMaster.API.Repositories.Concrete
             return await _context.TaskStatusHistories.ToListAsync();
         }
         public async Task<TaskStatusHistory> GetTaskStatusHistoryByIdAsync(int id)
-            => await _context.TaskStatusHistories.FindAsync(id);
+        {
+            var result = await _context.TaskStatusHistories.FindAsync(id).ConfigureAwait(false);
+            if (result == null)
+            {
+                throw new InvalidOperationException($"TaskStatusHistory with ID {id} not found.");
+            }
+            return result;
+        }
         public async Task<TaskStatusHistory?> AddTaskStatusHistoryAsync(TaskStatusHistory tsh)
         {
-            _context.TaskStatusHistories.AddAsync(tsh);
+            await _context.TaskStatusHistories.AddAsync(tsh).ConfigureAwait(false);
             await _context.SaveChangesAsync();
             return tsh;
         }

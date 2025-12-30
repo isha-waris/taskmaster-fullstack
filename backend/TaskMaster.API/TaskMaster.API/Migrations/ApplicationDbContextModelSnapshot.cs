@@ -41,7 +41,6 @@ namespace TaskMaster.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -72,13 +71,11 @@ namespace TaskMaster.API.Migrations
                     b.Property<int>("ChangedByUserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("NewStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NewStatus")
+                        .HasColumnType("int");
 
-                    b.Property<string>("OldStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("OldStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("TaskItemId")
                         .HasColumnType("int");
@@ -115,9 +112,8 @@ namespace TaskMaster.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

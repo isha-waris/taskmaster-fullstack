@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TaskMaster.API.DTOs.TaskStatusHistory;
 using TaskMaster.API.Entities;
 using TaskMaster.API.Repositories.Interfaces;
@@ -16,6 +17,7 @@ public class TaskStatusHistoriesController : ControllerBase
         _historyRepo = historyRepo;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
@@ -23,6 +25,7 @@ public class TaskStatusHistoriesController : ControllerBase
         return Ok(history);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> Create(CreateTaskStatusHistoryDto dto)
     {

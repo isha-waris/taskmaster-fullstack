@@ -3,6 +3,7 @@ using TaskMaster.API.DTOs.User;
 using TaskMaster.API.DTOs.Common;
 using TaskMaster.API.Entities;
 using TaskMaster.API.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TaskMaster.API.Controllers
 {
@@ -13,22 +14,23 @@ namespace TaskMaster.API.Controllers
         private readonly IUserRepository _userRepo;
         //Constructor
         public UsersController(IUserRepository userRepo) => _userRepo = userRepo;
+
+        [Authorize]
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<UserListDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
             var users = await _userRepo.GetAllUsersAsync();
             var result = users.Select(u => new UserListDto
             {
                 Id = u.Id,
-                FullName=u.FullName,
-                Email=u.Email,
-                Role=u.Role
+                FullName = u.FullName,
+                Email = u.Email,
+                Role = (int)u.Role
             });
             return Ok(result);
-
         }
 
+        [Authorize]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -40,7 +42,7 @@ namespace TaskMaster.API.Controllers
                 Id = user.Id,
                 FullName = user.FullName,
                 Email = user.Email,
-                Role = user.Role,
+                Role = (int)user.Role,
 
                 AssignedTasks = user.AssignedTasks.Select(t => new UserTaskDto
                 {
@@ -63,12 +65,12 @@ namespace TaskMaster.API.Controllers
             return Ok(response);
         }
 
-
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status201Created)]
         public async Task<IActionResult> Create(CreateUserDto dto)
         {
-            var user= new User
+            var user = new User
             {
                 FullName = dto.FullName,
                 Email = dto.Email,
@@ -82,11 +84,13 @@ namespace TaskMaster.API.Controllers
                 Id = user.Id,
                 FullName = user.FullName,
                 Email = user.Email,
-                Role = user.Role,
+                Role = (int)user.Role,
                 CreatedAt = user.CreatedAt
             };
             return CreatedAtAction(nameof(GetById), new { id = user.Id }, responseDto);
         }
+
+        [Authorize]
         [HttpPut("{id:int}")]
         [ProducesResponseType(typeof(UserResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -103,13 +107,15 @@ namespace TaskMaster.API.Controllers
             var result = new UserResponseDto
             {
                 Id = updated.Id,
-                FullName= updated.FullName,
-                Email= updated.Email,
-                Role=updated.Role,
-                CreatedAt= updated.CreatedAt
+                FullName = updated.FullName,
+                Email = updated.Email,
+                Role = (int)updated.Role,
+                CreatedAt = updated.CreatedAt
             };
             return Ok(result);
         }
+
+        [Authorize]
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -118,6 +124,7 @@ namespace TaskMaster.API.Controllers
             var ok = await _userRepo.DeleteUserAsync(id);
             return ok ? NoContent() : NotFound();
         }
+
         [HttpPost("{id:int}/change-password")]
         public async Task<IActionResult> ChangePassword(int id, [FromBody] ChangePasswordDto dto)
         {

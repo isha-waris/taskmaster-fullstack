@@ -1,4 +1,6 @@
-﻿namespace TaskMaster.API.Entities;
+﻿using TaskMaster.API.Enums;
+
+namespace TaskMaster.API.Entities;
 
 public class User
 {
@@ -9,7 +11,7 @@ public class User
     public string FullName { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string PasswordHash { get; set; } = null!;
-    public string Role { get; set; } = null!;
+    public UserRole Role { get; set; }
 
     // Audit
     public DateTime CreatedAt { get; set; }
